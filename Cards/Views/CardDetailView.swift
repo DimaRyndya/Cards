@@ -6,16 +6,7 @@ struct CardDetailView: View {
 
     var body: some View {
         content
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { viewState.showAllCards.toggle() }) {
-                        Text("Done")
-                    }
-                }
-                ToolbarItem(placement: .bottomBar) {
-                    CardBottomToolBar(cardModal: $currentModal)
-                }
-            }
+            .modifier(CardToolBar(currentModal: $currentModal))
     }
 
     var content: some View {

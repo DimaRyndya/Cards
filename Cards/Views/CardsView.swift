@@ -1,10 +1,3 @@
-//
-//  CardsView.swift
-//  Cards
-//
-//  Created by Dmitriy Ryndya on 05.09.2022.
-//
-
 import SwiftUI
 
 struct CardsView: View {

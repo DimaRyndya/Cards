@@ -118,8 +118,8 @@
 				1D769BDF28C7629500B3F506 /* Views */,
 				1D769BE028C762C900B3F506 /* Models */,
 				1D769BC428C624B700B3F506 /* Assets.xcassets */,
-				1D6C562128C8F888006E4384 /* Preview Content */,
 				1D769BC928C624B700B3F506 /* Info.plist */,
+				1D6C562128C8F888006E4384 /* Preview Content */,
 			);
 			path = Cards;
 			sourceTree = "<group>";

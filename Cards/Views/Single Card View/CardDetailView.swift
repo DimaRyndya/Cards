@@ -4,6 +4,7 @@ struct CardDetailView: View {
     @State private var currentModal: CardModal?
     @EnvironmentObject var viewState: ViewState
     @Binding var card: Card
+    @State private var stickerImage: UIImage?
 
     var body: some View {
         content
@@ -11,7 +12,13 @@ struct CardDetailView: View {
             .sheet(item: $currentModal) { item in
                 switch item {
                 case .stickerPicker:
-                    EmptyView()
+                    StickerPicker(stickerImage: $stickerImage)
+                        .onDisappear {
+                          if let stickerImage = stickerImage {
+                            card.addElement(uiImage: stickerImage)
+                          }
+                          stickerImage = nil
+                        }
                 default:
                     EmptyView()
                 }

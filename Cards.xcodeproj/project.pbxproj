@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1D36F74428CA454600CFA7BF /* CardElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D36F74328CA454600CFA7BF /* CardElementView.swift */; };
+		1D36F74A28CB423800CFA7BF /* Stickers in Resources */ = {isa = PBXBuildFile; fileRef = 1D36F74928CB423800CFA7BF /* Stickers */; };
+		1D36F74D28CB439300CFA7BF /* StickerPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D36F74C28CB439300CFA7BF /* StickerPicker.swift */; };
+		1D36F74F28CB5EC100CFA7BF /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D36F74E28CB5EC100CFA7BF /* PhotoPicker.swift */; };
 		1D6C561128C7BB32006E4384 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C561028C7BB32006E4384 /* ViewExtensions.swift */; };
 		1D6C561428C7C5CE006E4384 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C561328C7C5CE006E4384 /* Settings.swift */; };
 		1D6C561628C7C8D1006E4384 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C561528C7C8D1006E4384 /* ColorExtensions.swift */; };
@@ -35,6 +38,9 @@
 
 /* Begin PBXFileReference section */
 		1D36F74328CA454600CFA7BF /* CardElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardElementView.swift; sourceTree = "<group>"; };
+		1D36F74928CB423800CFA7BF /* Stickers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Stickers; sourceTree = "<group>"; };
+		1D36F74C28CB439300CFA7BF /* StickerPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerPicker.swift; sourceTree = "<group>"; };
+		1D36F74E28CB5EC100CFA7BF /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		1D6C561028C7BB32006E4384 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		1D6C561328C7C5CE006E4384 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		1D6C561528C7C8D1006E4384 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
@@ -76,6 +82,7 @@
 		1D36F74228CA449B00CFA7BF /* Single Card View */ = {
 			isa = PBXGroup;
 			children = (
+				1D36F74B28CB436A00CFA7BF /* Card Modal Views */,
 				1D769BD328C641C800B3F506 /* SingleCardView.swift */,
 				1D769BD928C658CA00B3F506 /* CardDetailView.swift */,
 				1D769BDD28C6617900B3F506 /* CardBottomToolBar.swift */,
@@ -83,6 +90,15 @@
 				1D36F74328CA454600CFA7BF /* CardElementView.swift */,
 			);
 			path = "Single Card View";
+			sourceTree = "<group>";
+		};
+		1D36F74B28CB436A00CFA7BF /* Card Modal Views */ = {
+			isa = PBXGroup;
+			children = (
+				1D36F74C28CB439300CFA7BF /* StickerPicker.swift */,
+				1D36F74E28CB5EC100CFA7BF /* PhotoPicker.swift */,
+			);
+			path = "Card Modal Views";
 			sourceTree = "<group>";
 		};
 		1D6C560F28C7BADA006E4384 /* Extensions */ = {
@@ -138,6 +154,7 @@
 				1D769BDF28C7629500B3F506 /* Views */,
 				1D769BE028C762C900B3F506 /* Models */,
 				1D769BC428C624B700B3F506 /* Assets.xcassets */,
+				1D36F74928CB423800CFA7BF /* Stickers */,
 				1D769BC928C624B700B3F506 /* Info.plist */,
 				1D6C562128C8F888006E4384 /* Preview Content */,
 			);
@@ -227,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D6C562528C8F888006E4384 /* Preview Assets.xcassets in Resources */,
+				1D36F74A28CB423800CFA7BF /* Stickers in Resources */,
 				1D769BC528C624B700B3F506 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +259,7 @@
 				1D769BE428C7852600B3F506 /* Transform.swift in Sources */,
 				1D769BE228C782EB00B3F506 /* ResizableView.swift in Sources */,
 				1D769BD828C64A3100B3F506 /* CardsView.swift in Sources */,
+				1D36F74D28CB439300CFA7BF /* StickerPicker.swift in Sources */,
 				1D769BDC28C6611400B3F506 /* CardModal.swift in Sources */,
 				1D6C561A28C8F58F006E4384 /* TextExtensions.swift in Sources */,
 				1D6C561428C7C5CE006E4384 /* Settings.swift in Sources */,
@@ -257,6 +276,7 @@
 				1D6C562428C8F888006E4384 /* PreviewData.swift in Sources */,
 				1D6C562728C8FF41006E4384 /* CardElement.swift in Sources */,
 				1D769BD428C641C800B3F506 /* SingleCardView.swift in Sources */,
+				1D36F74F28CB5EC100CFA7BF /* PhotoPicker.swift in Sources */,
 				1D769BD228C63F3900B3F506 /* CardThumbnailView.swift in Sources */,
 				1D769BDA28C658CA00B3F506 /* CardDetailView.swift in Sources */,
 				1D36F74428CA454600CFA7BF /* CardElementView.swift in Sources */,

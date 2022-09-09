@@ -11,6 +11,7 @@
 		1D36F74A28CB423800CFA7BF /* Stickers in Resources */ = {isa = PBXBuildFile; fileRef = 1D36F74928CB423800CFA7BF /* Stickers */; };
 		1D36F74D28CB439300CFA7BF /* StickerPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D36F74C28CB439300CFA7BF /* StickerPicker.swift */; };
 		1D36F74F28CB5EC100CFA7BF /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D36F74E28CB5EC100CFA7BF /* PhotoPicker.swift */; };
+		1D36F75128CBB37700CFA7BF /* CardDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D36F75028CBB37700CFA7BF /* CardDrop.swift */; };
 		1D6C561128C7BB32006E4384 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C561028C7BB32006E4384 /* ViewExtensions.swift */; };
 		1D6C561428C7C5CE006E4384 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C561328C7C5CE006E4384 /* Settings.swift */; };
 		1D6C561628C7C8D1006E4384 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C561528C7C8D1006E4384 /* ColorExtensions.swift */; };
@@ -41,6 +42,7 @@
 		1D36F74928CB423800CFA7BF /* Stickers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Stickers; sourceTree = "<group>"; };
 		1D36F74C28CB439300CFA7BF /* StickerPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerPicker.swift; sourceTree = "<group>"; };
 		1D36F74E28CB5EC100CFA7BF /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		1D36F75028CBB37700CFA7BF /* CardDrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDrop.swift; sourceTree = "<group>"; };
 		1D6C561028C7BB32006E4384 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		1D6C561328C7C5CE006E4384 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		1D6C561528C7C8D1006E4384 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				1D6C562628C8FF41006E4384 /* CardElement.swift */,
 				1D6C562828C8FFBB006E4384 /* Card.swift */,
 				1D6C562A28C9019B006E4384 /* CardStore.swift */,
+				1D36F75028CBB37700CFA7BF /* CardDrop.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				1D6C561628C7C8D1006E4384 /* ColorExtensions.swift in Sources */,
 				1D6C562B28C9019B006E4384 /* CardStore.swift in Sources */,
 				1D6C562428C8F888006E4384 /* PreviewData.swift in Sources */,
+				1D36F75128CBB37700CFA7BF /* CardDrop.swift in Sources */,
 				1D6C562728C8FF41006E4384 /* CardElement.swift in Sources */,
 				1D769BD428C641C800B3F506 /* SingleCardView.swift in Sources */,
 				1D36F74F28CB5EC100CFA7BF /* PhotoPicker.swift in Sources */,

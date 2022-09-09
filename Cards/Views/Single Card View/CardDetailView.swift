@@ -5,9 +5,11 @@ struct CardDetailView: View {
     @EnvironmentObject var viewState: ViewState
     @Binding var card: Card
     @State private var stickerImage: UIImage?
+    @State private var images: [UIImage] = []
 
     var body: some View {
         content
+            .onDrop(of: [.image], delegate: CardDrop(card: $card))
             .modifier(CardToolBar(currentModal: $currentModal))
             .sheet(item: $currentModal) { item in
                 switch item {
@@ -19,6 +21,14 @@ struct CardDetailView: View {
                           }
                           stickerImage = nil
                         }
+                case .photoPicker:
+                  PhotoPicker(images: $images)
+                  .onDisappear {
+                    for image in images {
+                      card.addElement(uiImage: image)
+                    }
+                    images = []
+                  }
                 default:
                     EmptyView()
                 }

@@ -18,7 +18,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
     }
 
     func makeCoordinator() -> PhotosCoordinator {
-      PhotosCoordinator(parent: self)
+        PhotosCoordinator(parent: self)
     }
 }
 
@@ -33,17 +33,17 @@ class PhotosCoordinator: NSObject,PHPickerViewControllerDelegate {
         let itemProviders = results.map(\.itemProvider)
         for item in itemProviders {
             if item.canLoadObject(ofClass: UIImage.self) {
-              item.loadObject(ofClass: UIImage.self) { image, error in
-                if let error = error {
-                  print("Error!", error.localizedDescription)
-                } else {
-                  DispatchQueue.main.async {
-                    if let image = image as? UIImage {
-                      self.parent.images.append(image)
+                item.loadObject(ofClass: UIImage.self) { image, error in
+                    if let error = error {
+                        print("Error!", error.localizedDescription)
+                    } else {
+                        DispatchQueue.main.async {
+                            if let image = image as? UIImage {
+                                self.parent.images.append(image)
+                            }
+                        }
                     }
-                  }
                 }
-              }
             }
         }
         parent.presentationMode.wrappedValue.dismiss()

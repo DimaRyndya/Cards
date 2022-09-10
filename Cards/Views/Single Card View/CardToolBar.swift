@@ -13,7 +13,7 @@ struct CardToolBar: ViewModifier {
                     }
                 }
                 ToolbarItem(placement: .bottomBar) {
-                    CardBottomToolBar(cardModal: $currentModal)
+                    CardBottomToolbar(cardModal: $currentModal)
                 }
             }
     }

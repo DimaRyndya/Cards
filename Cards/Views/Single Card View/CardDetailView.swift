@@ -1,11 +1,13 @@
 import SwiftUI
 
+
 struct CardDetailView: View {
-    @State private var currentModal: CardModal?
     @EnvironmentObject var viewState: ViewState
-    @Binding var card: Card
+    @State private var currentModal: CardModal?
     @State private var stickerImage: UIImage?
     @State private var images: [UIImage] = []
+    @State private var frame: AnyShape?
+    @Binding var card: Card
 
     var body: some View {
         content
@@ -16,46 +18,65 @@ struct CardDetailView: View {
                 case .stickerPicker:
                     StickerPicker(stickerImage: $stickerImage)
                         .onDisappear {
-                          if let stickerImage = stickerImage {
-                            card.addElement(uiImage: stickerImage)
-                          }
-                          stickerImage = nil
+                            if let stickerImage = stickerImage {
+                                card.addElement(uiImage: stickerImage)
+                            }
+                            stickerImage = nil
                         }
                 case .photoPicker:
-                  PhotoPicker(images: $images)
-                  .onDisappear {
-                    for image in images {
-                      card.addElement(uiImage: image)
+                    PhotoPicker(images: $images)
+                        .onDisappear {
+                            for image in images {
+                                card.addElement(uiImage: image)
+                            }
+                            images = []
+                        }
+                case .framePicker:
+                  FramePicker(frame: $frame)
+                    .onDisappear {
+                      if let frame = frame {
+                        card.update(
+                          viewState.selectedElement,
+                          frame: frame)
+                      }
+                      frame = nil
                     }
-                    images = []
-                  }
                 default:
                     EmptyView()
                 }
             }
-
     }
 
     var content: some View {
         ZStack {
             card.backgroundColor
                 .edgesIgnoringSafeArea(.all)
+                .onTapGesture {
+                    viewState.selectedElement = nil
+                }
             ForEach(card.elements, id: \.id) { element in
-                CardElementView(element: element)
+                CardElementView(
+                    element: element,
+                    selected: viewState.selectedElement?.id == element.id)
+                    .contextMenu {
+                        // swiftlint:disable:next multiple_closures_with_trailing_closure
+                        Button(action: { card.remove(element) }) {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
                     .resizableView(transform: bindingTransform(for: element))
                     .frame(
                         width: element.transform.size.width,
                         height: element.transform.size.height)
-                    .contextMenu {
-                        Button(action: { card.remove(element) }) {
-                            Label("Delete", systemImage: "trash")
-                        }
+                    .onTapGesture {
+                        viewState.selectedElement = element
                     }
             }
         }
     }
 
-    func bindingTransform(for element: CardElement)-> Binding<Transform> {
+    func bindingTransform(for element: CardElement)
+    -> Binding<Transform> {
         guard let index = element.index(in: card.elements) else {
             fatalError("Element does not exist")
         }
@@ -71,7 +92,6 @@ struct CardDetailView_Previews: PreviewProvider {
                 .environmentObject(ViewState(card: card))
         }
     }
-
     static var previews: some View {
         CardDetailPreview()
     }

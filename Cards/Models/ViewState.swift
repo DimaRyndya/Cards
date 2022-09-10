@@ -1,13 +1,19 @@
-import Foundation
+import SwiftUI
 
 class ViewState: ObservableObject {
-
-    var selectedCard: Card?
-
     @Published var showAllCards = true {
         didSet {
             if showAllCards {
                 selectedCard = nil
+            }
+        }
+    }
+    @Published var selectedElement: CardElement?
+
+    var selectedCard: Card? {
+        didSet {
+            if selectedCard == nil {
+                selectedElement = nil
             }
         }
     }
@@ -16,6 +22,6 @@ class ViewState: ObservableObject {
         self.init()
         showAllCards = false
         selectedCard = card
+        selectedElement = nil
     }
-
 }

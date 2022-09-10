@@ -13,6 +13,9 @@
 		1D36F74F28CB5EC100CFA7BF /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D36F74E28CB5EC100CFA7BF /* PhotoPicker.swift */; };
 		1D36F75128CBB37700CFA7BF /* CardDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D36F75028CBB37700CFA7BF /* CardDrop.swift */; };
 		1D36F75328CBB62200CFA7BF /* PancilCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D36F75228CBB62200CFA7BF /* PancilCanvasView.swift */; };
+		1D36F75528CCBA5700CFA7BF /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D36F75428CCBA5700CFA7BF /* Shapes.swift */; };
+		1D36F75728CCC1B200CFA7BF /* FramePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D36F75628CCC1B200CFA7BF /* FramePicker.swift */; };
+		1D36F75928CCC41100CFA7BF /* AnyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D36F75828CCC41100CFA7BF /* AnyShape.swift */; };
 		1D6C561128C7BB32006E4384 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C561028C7BB32006E4384 /* ViewExtensions.swift */; };
 		1D6C561428C7C5CE006E4384 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C561328C7C5CE006E4384 /* Settings.swift */; };
 		1D6C561628C7C8D1006E4384 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C561528C7C8D1006E4384 /* ColorExtensions.swift */; };
@@ -45,6 +48,9 @@
 		1D36F74E28CB5EC100CFA7BF /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		1D36F75028CBB37700CFA7BF /* CardDrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDrop.swift; sourceTree = "<group>"; };
 		1D36F75228CBB62200CFA7BF /* PancilCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PancilCanvasView.swift; sourceTree = "<group>"; };
+		1D36F75428CCBA5700CFA7BF /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
+		1D36F75628CCC1B200CFA7BF /* FramePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramePicker.swift; sourceTree = "<group>"; };
+		1D36F75828CCC41100CFA7BF /* AnyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyShape.swift; sourceTree = "<group>"; };
 		1D6C561028C7BB32006E4384 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		1D6C561328C7C5CE006E4384 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		1D6C561528C7C8D1006E4384 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 				1D36F74C28CB439300CFA7BF /* StickerPicker.swift */,
 				1D36F74E28CB5EC100CFA7BF /* PhotoPicker.swift */,
 				1D36F75228CBB62200CFA7BF /* PancilCanvasView.swift */,
+				1D36F75628CCC1B200CFA7BF /* FramePicker.swift */,
 			);
 			path = "Card Modal Views";
 			sourceTree = "<group>";
@@ -188,6 +195,8 @@
 				1D6C562828C8FFBB006E4384 /* Card.swift */,
 				1D6C562A28C9019B006E4384 /* CardStore.swift */,
 				1D36F75028CBB37700CFA7BF /* CardDrop.swift */,
+				1D36F75428CCBA5700CFA7BF /* Shapes.swift */,
+				1D36F75828CCC41100CFA7BF /* AnyShape.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -273,14 +282,17 @@
 				1D769BD028C63A2D00B3F506 /* CardsListView.swift in Sources */,
 				1D6C562928C8FFBB006E4384 /* Card.swift in Sources */,
 				1D769BD628C647DB00B3F506 /* ViewState.swift in Sources */,
+				1D36F75528CCBA5700CFA7BF /* Shapes.swift in Sources */,
 				1D6C561128C7BB32006E4384 /* ViewExtensions.swift in Sources */,
 				1D6C561828C8DC07006E4384 /* CardToolBar.swift in Sources */,
 				1D769BDE28C6617900B3F506 /* CardBottomToolBar.swift in Sources */,
 				1D769BC128C624B500B3F506 /* CardsApp.swift in Sources */,
 				1D6C561C28C8F5BA006E4384 /* Operators.swift in Sources */,
+				1D36F75728CCC1B200CFA7BF /* FramePicker.swift in Sources */,
 				1D6C561628C7C8D1006E4384 /* ColorExtensions.swift in Sources */,
 				1D6C562B28C9019B006E4384 /* CardStore.swift in Sources */,
 				1D6C562428C8F888006E4384 /* PreviewData.swift in Sources */,
+				1D36F75928CCC41100CFA7BF /* AnyShape.swift in Sources */,
 				1D36F75128CBB37700CFA7BF /* CardDrop.swift in Sources */,
 				1D6C562728C8FF41006E4384 /* CardElement.swift in Sources */,
 				1D769BD428C641C800B3F506 /* SingleCardView.swift in Sources */,

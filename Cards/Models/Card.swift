@@ -15,10 +15,8 @@ struct Card: Identifiable {
         save()
     }
     mutating func addElement(uiImage: UIImage) {
-        // 1
         let imageFilename = uiImage.save()
         let image = Image(uiImage: uiImage)
-        // 2
         let element = ImageElement(
             image: image,
             imageFilename: imageFilename)
@@ -39,15 +37,11 @@ struct Card: Identifiable {
 
     func save() {
         do {
-            // 1
             let encoder = JSONEncoder()
-            // 2
             let data = try encoder.encode(self)
-            // 3
             let filename = "\(id).rwcard"
             if let url = FileManager.documentURL?
                 .appendingPathComponent(filename) {
-                // 4
                 try data.write(to: url)
             }
         } catch {
@@ -68,12 +62,12 @@ extension Card: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder
             .container(keyedBy: CodingKeys.self)
-        // 1
         let id = try container.decode(String.self, forKey: .id)
         self.id = UUID(uuidString: id) ?? UUID()
-        // 2
         elements += try container
             .decode([ImageElement].self, forKey: .imageElements)
+        let backgroundColor = try container.decode([CGFloat].self, forKey: .backgroundColor)
+        self.backgroundColor = .color(components: backgroundColor)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -82,6 +76,7 @@ extension Card: Codable {
         let imageElements: [ImageElement] =
             elements.compactMap { $0 as? ImageElement }
         try container.encode(imageElements, forKey: .imageElements)
+        try container.encode(backgroundColor.colorComponents(), forKey: .backgroundColor)
     }
 
 
@@ -89,6 +84,7 @@ extension Card: Codable {
         case id, backgroundColor, imageElements, textElements
     }
 }
+
 
 
 

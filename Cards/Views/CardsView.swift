@@ -6,7 +6,15 @@ struct CardsView: View {
 
     var body: some View {
         ZStack {
-            CardsListView()
+            VStack {
+              Button(action: {
+                viewState.selectedCard = store.addCard()
+                viewState.showAllCards = false
+              }, label: {
+                Text("Add")
+              })
+              CardsListView()
+            }
             if !viewState.showAllCards {
                 SingleCardView()
             }

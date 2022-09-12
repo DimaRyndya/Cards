@@ -3,6 +3,7 @@ import SwiftUI
 
 struct CardDetailView: View {
     @EnvironmentObject var viewState: ViewState
+    @Environment(\.scenePhase) private var scenePhase
     @State private var currentModal: CardModal?
     @State private var stickerImage: UIImage?
     @State private var images: [UIImage] = []
@@ -44,6 +45,14 @@ struct CardDetailView: View {
                 default:
                     EmptyView()
                 }
+            }
+            .onChange(of: scenePhase) { newScenePhase in
+              if newScenePhase == .inactive {
+                card.save()
+              }
+            }
+            .onDisappear {
+              card.save()
             }
     }
 

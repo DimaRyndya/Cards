@@ -5,22 +5,33 @@ struct CardsListView: View {
     @EnvironmentObject var store: CardStore
 
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack {
-                ForEach(store.cards) { card in
-                    CardThumbnailView(card: card)
-                        .contextMenu {
-                            Button(action: { store.remove(card) }) {
-                                Label("Delete", systemImage: "trash")
-                            }
+        GeometryReader { proxy in
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    LazyVGrid(columns: columns(size: proxy.size), spacing: 30) {
+                        ForEach(store.cards) { card in
+                            CardThumbnailView(card: card, size: proxy.size)
+                                .contextMenu {
+                                    Button(action: { store.remove(card) }) {
+                                        Label("Delete", systemImage: "trash")
+                                    }
+                                }
+                                .onTapGesture {
+                                    viewState.showAllCards.toggle()
+                                    viewState.selectedCard = card
+                                }
                         }
-                        .onTapGesture {
-                            viewState.showAllCards.toggle()
-                            viewState.selectedCard = card
-                        }
+                    }
                 }
             }
         }
+    }
+    
+    func columns(size: CGSize) -> [GridItem] {
+      [
+        GridItem(.adaptive(
+          minimum: Settings.thumbnailSize(size: size).width))
+      ]
     }
 }
 

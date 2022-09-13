@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ToolbarButtonView: View {
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+
     let modal: CardModal
     private let modalButton: [CardModal: (text: String, imageName: String)] = [
         .photoPicker: ("Photos", "photo"),
@@ -10,15 +12,35 @@ struct ToolbarButtonView: View {
     ]
 
     var body: some View {
-        if let text = modalButton[modal]?.text,
-           let imageName = modalButton[modal]?.imageName {
-            VStack {
-                Image(systemName: imageName)
-                    .font(.largeTitle)
-                Text(text)
-            }
-            .padding(.top)
+      if let text = modalButton[modal]?.text,
+        let imageName = modalButton[modal]?.imageName {
+        if verticalSizeClass == .compact {
+          compactView(imageName)
+        } else {
+          regularView(imageName, text)
         }
+      }
+    }
+
+
+    func regularView(
+      _ imageName: String,
+      _ text: String
+    ) -> some View {
+      VStack(spacing: 2) {
+        Image(systemName: imageName)
+        Text(text)
+      }
+      .frame(minWidth: 60)
+      .padding(.top, 5)
+    }
+
+    func compactView(_ imageName: String) -> some View {
+      VStack(spacing: 2) {
+        Image(systemName: imageName)
+      }
+      .frame(minWidth: 60)
+      .padding(.top, 5)
     }
 }
 
@@ -27,7 +49,7 @@ struct CardBottomToolbar: View {
     @Binding var cardModal: CardModal?
 
     var body: some View {
-        HStack {
+        HStack(alignment: .bottom) {
             Button(action: { cardModal = .photoPicker }) {
                 ToolbarButtonView(modal: .photoPicker)
             }

@@ -4,16 +4,26 @@ struct CardsView: View {
     @EnvironmentObject var viewState: ViewState
     @EnvironmentObject var store: CardStore
 
+    var createButton: some View {
+      Button(action: {
+        viewState.selectedCard = store.addCard()
+        viewState.showAllCards = false
+      }) {
+        Label("Create New", systemImage: "plus")
+            .frame(maxWidth: .infinity)
+      }
+      .font(.system(size: 16, weight: .bold))
+      .padding([.top, .bottom], 10)
+      .background(Color("barColor"))
+      .accentColor(.white)
+    }
+
     var body: some View {
         ZStack {
+            CardsListView()
             VStack {
-              Button(action: {
-                viewState.selectedCard = store.addCard()
-                viewState.showAllCards = false
-              }, label: {
-                Text("Add")
-              })
-              CardsListView()
+              Spacer()
+              createButton
             }
             if !viewState.showAllCards {
                 SingleCardView()

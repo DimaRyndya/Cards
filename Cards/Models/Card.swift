@@ -24,6 +24,11 @@ struct Card: Identifiable {
         save()
     }
 
+    mutating func addText(textElement: TextElement) {
+        elements.append(textElement)
+        save()
+    }
+
     mutating func update(_ element: CardElement?, frame: AnyShape) {
         if let element = element as? ImageElement,
            let index = element.index(in: elements) {
@@ -68,6 +73,7 @@ extension Card: Codable {
             .decode([ImageElement].self, forKey: .imageElements)
         let backgroundColor = try container.decode([CGFloat].self, forKey: .backgroundColor)
         self.backgroundColor = .color(components: backgroundColor)
+        elements += try container.decode([TextElement].self, forKey: .textElements)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -77,6 +83,8 @@ extension Card: Codable {
             elements.compactMap { $0 as? ImageElement }
         try container.encode(imageElements, forKey: .imageElements)
         try container.encode(backgroundColor.colorComponents(), forKey: .backgroundColor)
+        let textElement: [TextElement] = elements.compactMap { $0 as? TextElement }
+        try container.encode(textElement, forKey: .textElements)
     }
 
 

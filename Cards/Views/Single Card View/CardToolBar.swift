@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CardToolBar: ViewModifier {
+struct CardToolbar: ViewModifier {
     @EnvironmentObject var viewState: ViewState
     @Binding var currentModal: CardModal?
     

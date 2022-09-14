@@ -7,7 +7,10 @@ struct CardsView: View {
     var createButton: some View {
       Button(action: {
         viewState.selectedCard = store.addCard()
-        viewState.showAllCards = false
+        withAnimation {
+          viewState.showAllCards = false
+        }
+
       }) {
         Label("Create New", systemImage: "plus")
             .frame(maxWidth: .infinity)
@@ -19,14 +22,26 @@ struct CardsView: View {
     }
 
     var body: some View {
-        ZStack {
-            CardsListView()
-            VStack {
-              Spacer()
-              createButton
+        VStack {
+            if viewState.showAllCards {
+              ListSelectionView(selection: $viewState.cardListState)
             }
-            if !viewState.showAllCards {
-                SingleCardView()
+
+            ZStack {
+                switch viewState.cardListState {
+                case .list:
+                  CardsListView()
+                case .carousel:
+                  Carousel()
+                }
+                VStack {
+                  Spacer()
+                  createButton
+                }
+                if !viewState.showAllCards {
+                    SingleCardView()
+                        .zIndex(1)
+                }
             }
         }
     }

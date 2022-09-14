@@ -4,6 +4,8 @@ struct Card: Identifiable {
   var id = UUID()
   var backgroundColor: Color = .yellow
   var elements: [CardElement] = []
+  var image: UIImage?
+  var shareImage: UIImage?
 
   func save() {
     do {
